@@ -110,6 +110,7 @@ main {
 .textcontainer {
     padding: 5px;
     display: flex;
+    flex-direction: column;
 }
 
 a h1 {
@@ -274,6 +275,10 @@ img {
 .opentext {
     font-size: .8rem;
     line-height: 1rem;
+    color: white;
+    font-weight: bold;
+    padding-top: 3px;
+    text-align: center;
 }
 
 #submit, #discard, #delete, .enter-button {
