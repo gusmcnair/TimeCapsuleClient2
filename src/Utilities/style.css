@@ -249,6 +249,9 @@ img {
     background-color: gray;
     cursor: pointer;
     outline: none;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
 }
 
 .opencapsule:disabled {
