@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+main {
+    padding: 10px;
+    background-color: steelblue;
+}
+
+
+
+.capsule {
+    padding: 20px;
+    position: relative;
+    margin: 20px auto;
+    margin-bottom:0px; 
+    border-left: 20px solid darkred;
+    border-right: 20px solid darkred;
+    background: rgb(147,147,147);
+    background: linear-gradient(0deg, rgba(147,147,147,1) 0%, rgba(186,186,186,1) 52%, rgba(147,147,147,1) 100%);
+    justify-content: space-evenly;
+    box-shadow: 2px 2px 5px rgb(0,0,0,.5);
+    z-index: 0;
+    min-height: 100px;
+}
+
+.insidecontainer {
+    background: rgb(230, 230, 230, .5);
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+    padding-left: 20px;
+    margin: 0 auto;
+    min-width: 50%;
+    text-align: center;
+}
+
+.capsule-contents {
+    margin-top: 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background: rgb(230, 230, 230);
+    position: relative;
+    z-index: 10;
+    box-shadow: 2px 2px 5px rgb(0,0,0,.5);
+    -webkit-transition: height .5s ease;
+    -o-transition: height .5s ease;
+    transition: height .5s ease;
+    overflow: hidden;
+    display: none;
+}
+
+.contents-container {
+    margin: 20px;
+}
+
+.textcontainer {
+    padding: 5px;
+    display: flex;
+}
+
+a h1 {
+    font-family: 'Shrikhand', sans-serif;
+    color: orange;
+    font-size: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    text-shadow: 2px 2px 3px darkred;
+    padding: -5px;
+    border-radius: 50px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.textcontainer p {
+    font-size: .9rem;
+    line-height: .9rem;
+}
+
+header {
+    padding-bottom: 20px;
+    margin: 20px;
+}
+
+.animated {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+ }
+ 
+ @-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ }
+ 
+ @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ }
+ 
+ .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+ }
+
+
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Shrikhand', sans-serif;
+    color: darkred;
+}
+
+
+
+p {
+    padding-top: 10px;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+}
+
+input, select, textarea {
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    padding: 7px;
+    min-width: 100%;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+}
+
+form {
+    padding: 25px;
+}
+
+img {
+    max-height: 250px;
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+}
+
+
+.capsulebutton {
+    padding: 0px;
+    background-color: none;
+}
+
+.enter-button {
+    margin: 0 auto
+}
+
+.button-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.warning {
+    color: darkred;
+}
+
+#addnew {
+    margin-left: 20px;
+}
+
+.explainer {
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    padding: 20px;
+    text-align: center;
+}
+
+.show {
+    display: block;
+    padding: 0px;
+}
+
+.opencapsule {
+    margin:0 auto;
+    color: white;
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+    line-height: .8rem;
+    border-radius: 3px;
+    border: 1px solid white;
+    background-color: gray;
+    cursor: pointer;
+    outline: none;
+}
+
+.opencapsule:disabled {
+    cursor: auto;
+}
+
+.addcapsules {
+    background-color: #ddd;
+    padding-right: 15px;
+}
+
+.makered {
+    background-color: darkred;
+}
+
+.makeblue {
+    background-color: orange;
+}
+
+.opentext {
+    font-size: .8rem;
+    line-height: 1rem;
+}
+
+#submit, #discard, #delete, .enter-button {
+    margin: 5px;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1.1rem;
+    background: orange;
+    border: 1px solid darkred;
+    font-family: 'Shrikhand', sans-serif;
+    cursor: pointer;
+}
+
+.addnewcontainer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#addnew {
+    margin: 5px;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1.4rem;
+    background: orange;
+    border: 1px solid darkred;
+    font-family: 'Shrikhand', sans-serif;
+}
+
+#submit:disabled {
+    background: white;
+    color: darkgray;
+}
+
+html {
+    background-color: steelblue;
+}
+
+.imagecontainer {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader {
+    border: 8px solid orange; 
+    border-top: 8px solid darkred; 
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 20px;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+@media only screen and (min-width:500px){
+    .capsule{
+        border-left: 40px solid darkred;
+        border-right: 40px solid darkred;
+        border-radius: 100px;
+    }
+  }
+
+
+@media only screen and (min-width: 700px){
+
+
+main {
+    width: 700px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    min-height: 400px;
+
+}
+
+.capsule-contents {
+    margin-left: 75px;
+    margin-right: 75px;
+
+}
+
+.capsule {
+    display: flex;
+}
+
+a h1 {
+    font-size: 5rem;
+    line-height: 6rem;
+}
+
+img {
+    max-height: 400px;
+}
+
+.imagecontainer {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+}
