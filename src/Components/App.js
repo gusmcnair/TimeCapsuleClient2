@@ -33,13 +33,12 @@ class App extends React.Component {
     else if(data.time === 'oneyear'){lockTime = 31536000000}
     else if(data.time === 'twoyears'){lockTime = 63072000000}
     else if(data.time === 'fiveyears'){lockTime = 157680000000}
-    let currDate = new Date
+    let currDate = new Date()
     let universalDate = currDate.getTime() + lockTime
     let expDate = new Date(universalDate)
     let buryDate = this.formatDate(currDate.toString())
     let openDate = this.formatDate(expDate.toString())
     let imageLink = !data.imagelink ? '' : data.imagelink
-    console.log(data.title, data.content, imageLink, buryDate, openDate, universalDate)
     let newCapsule = {
       title: data.title,
       contents: data.content,
@@ -70,7 +69,6 @@ class App extends React.Component {
     }
 
     formatDate = (inputDate) => {
-      console.log(inputDate)
       let dateArray = inputDate.split(' ')
       dateArray.shift();
       if(dateArray[0] === 'Jan'){dateArray[0] += 'uary'}
@@ -102,11 +100,10 @@ class App extends React.Component {
     this.setState({
       capsules: newCapsules
     })
-    console.log(this.state)
   }
 
   handleDelete = (id) => {
-    let newCapsules = this.state.capsules.filter(capsule => capsule.id != id)
+    let newCapsules = this.state.capsules.filter(capsule => capsule.id !== id)
     this.setState({
       capsules: newCapsules
     })
@@ -138,7 +135,6 @@ class App extends React.Component {
   }
 
   render(){
-    console.log(this.state.capsules)
   return (
     <main>
         <HeaderComponent/>

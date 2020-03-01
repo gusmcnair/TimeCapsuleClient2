@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Saira+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -57,7 +57,6 @@ table {
 
 main {
     padding: 10px;
-    background-color: steelblue;
 }
 
 
@@ -67,18 +66,17 @@ main {
     position: relative;
     margin: 20px auto;
     margin-bottom:0px; 
-    border-left: 20px solid darkred;
-    border-right: 20px solid darkred;
-    background: rgb(147,147,147);
-    background: linear-gradient(0deg, rgba(147,147,147,1) 0%, rgba(186,186,186,1) 52%, rgba(147,147,147,1) 100%);
+    border: 2px solid tomato;
+    border-left: 20px solid tomato;
+    border-right: 20px solid tomato;
     justify-content: space-evenly;
-    box-shadow: 2px 2px 5px rgb(0,0,0,.5);
     z-index: 0;
     min-height: 100px;
+    background: navy;
+
 }
 
 .insidecontainer {
-    background: rgb(230, 230, 230, .5);
     border-radius: 10px;
     color: black;
     padding: 10px;
@@ -92,10 +90,10 @@ main {
     margin-top: 1px;
     margin-left: 20px;
     margin-right: 20px;
+    border: 2px solid tomato;
     background: rgb(230, 230, 230);
     position: relative;
     z-index: 10;
-    box-shadow: 2px 2px 5px rgb(0,0,0,.5);
     -webkit-transition: height .5s ease;
     -o-transition: height .5s ease;
     transition: height .5s ease;
@@ -104,7 +102,8 @@ main {
 }
 
 .contents-container {
-    margin: 20px;
+    background: rgb(230, 230, 230, .5);
+    padding: 20px;
 }
 
 .textcontainer {
@@ -113,28 +112,34 @@ main {
     flex-direction: column;
 }
 
-a h1 {
-    font-family: 'Shrikhand', sans-serif;
-    color: orange;
-    font-size: 3rem;
-    line-height: 3rem;
-    text-align: center;
-    text-shadow: 2px 2px 3px darkred;
-    padding: -5px;
-    border-radius: 50px;
-}
-
 a {
     text-decoration: none;
 }
 
+a h1 {
+    font-family: 'Saira Condensed', sans-serif;
+    text-transform: uppercase;
+    color: Tomato;
+    letter-spacing: 4px;
+    font-size: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    padding: -5px;
+    border-radius: 50px;
+    
+}
+
+
+
+
 .textcontainer p {
     font-size: .9rem;
     line-height: .9rem;
+    color: white;
 }
 
 header {
-    padding-bottom: 20px;
+    padding-top: 20px;
     margin: 20px;
 }
 
@@ -165,8 +170,14 @@ header {
 h3 {
     font-size: 1.5rem;
     font-weight: bold;
-    font-family: 'Shrikhand', sans-serif;
-    color: darkred;
+    letter-spacing: 1px;   
+    font-family: 'Saira Condensed', sans-serif;
+    text-transform: uppercase;
+
+}
+
+.textcontainer .insidecontainer p {
+    color: white;
 }
 
 
@@ -221,9 +232,7 @@ img {
     color: darkred;
 }
 
-#addnew {
-    margin-left: 20px;
-}
+
 
 .explainer {
     color: white;
@@ -240,19 +249,20 @@ img {
 
 .opencapsule {
     margin:0 auto;
-    color: white;
+    color: tomato;
+    background-color: navy;
     width: 80px;
     height: 80px;
     font-size: 2.5rem;
     line-height: .8rem;
-    border-radius: 3px;
-    border: 1px solid white;
-    background-color: gray;
+    border-radius: 50%;
     cursor: pointer;
     outline: none;
     display: flex; 
     justify-content: center; 
     align-items: center;
+    border: 0;
+    border: 2px solid tomato;
 }
 
 .opencapsule:disabled {
@@ -260,36 +270,52 @@ img {
 }
 
 .addcapsules {
-    background-color: #ddd;
+    background-color: rgb(230, 230, 230, .9);
     padding-right: 15px;
 }
 
 .makered {
-    background-color: darkred;
-}
+    background-color: navy;
+    color: tomato;}
 
 .makeblue {
-    background-color: orange;
+    color: navy;
+    background-color: tomato;
 }
 
 .opentext {
     font-size: .8rem;
     line-height: 1rem;
-    color: white;
     font-weight: bold;
-    padding-top: 3px;
+    padding-top: 5px;
     text-align: center;
 }
 
-#submit, #discard, #delete, .enter-button {
+.insidecontainer {
+    color: white;
+}
+
+.textcontainer p {
+    color: tomato;
+}
+
+#submit, #discard, #delete, .enter-button, #addnew {
     margin: 5px;
     margin-top: 20px;
     padding: 10px;
-    font-size: 1.1rem;
-    background: orange;
-    border: 1px solid darkred;
-    font-family: 'Shrikhand', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    border: 0px;
+    border-radius: 10px;
+    background: Tomato;
+    font-family: 'Saira Condensed', sans-serif;
+    text-transform: uppercase;
     cursor: pointer;
+    color: white;
+}
+
+#addnew {
+    margin-top: 50px;
 }
 
 .addnewcontainer {
@@ -299,23 +325,15 @@ img {
     cursor: pointer;
 }
 
-#addnew {
-    margin: 5px;
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 1.4rem;
-    background: orange;
-    border: 1px solid darkred;
-    font-family: 'Shrikhand', sans-serif;
-}
-
 #submit:disabled {
     background: white;
     color: darkgray;
+    cursor: default;
 }
 
 html {
-    background-color: steelblue;
+    background: rgb(10,10,80);
+    background: linear-gradient(90deg, rgba(10,10,80,1) 0%, rgba(0, 0, 65,1) 35%, rgba(10,10,80,1) 100%);
 }
 
 .imagecontainer {
@@ -325,8 +343,8 @@ html {
 }
 
 .loader {
-    border: 8px solid orange; 
-    border-top: 8px solid darkred; 
+    border: 8px solid white; 
+    border-top: 8px solid Tomato; 
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -340,11 +358,16 @@ html {
     100% { transform: rotate(360deg); }
   }
 
+  .starheader {
+    font-size: 2rem;
+    padding-bottom: 5px;
+}
+
 
 @media only screen and (min-width:500px){
     .capsule{
-        border-left: 40px solid darkred;
-        border-right: 40px solid darkred;
+        border-left: 40px solid tomato;
+        border-right: 40px solid tomato;
         border-radius: 100px;
     }
   }
@@ -369,12 +392,17 @@ main {
 
 .capsule {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    margin-top: 40px;
 }
 
+
+
 a h1 {
-    font-size: 5rem;
-    line-height: 6rem;
+    font-size: 4rem;
+    line-height: 5rem;
+    letter-spacing: 6px;
 }
 
 img {
@@ -390,6 +418,10 @@ img {
 .textcontainer {
     margin-left: 30px;
     margin-right: 30px;
+}
+
+.addcapsules {
+    border: 1px solid tomato;
 }
 
 

@@ -80,7 +80,7 @@ export default class IndividualCapsule extends React.Component {
             image.src = newCapsule.imageurl
             image.alt = this.props.title
         }
-        if (document.getElementById(`${this.props.title}_contents`).innerHTML == '') {
+        if (document.getElementById(`${this.props.title}_contents`).innerHTML === '') {
             document.getElementById(this.props.title + '_button').classList.add('makeblue')
             if (image.src) {
                 document.getElementById(`${this.props.title}_image`).classList.add('imagecontainer')
@@ -101,7 +101,6 @@ export default class IndividualCapsule extends React.Component {
             element.classList.add('show')
             element.style.height = 'auto';
             let height = element.clientHeight + 'px';
-            console.log(document.getElementById(`${this.props.title}_image`).clientHeight)
             element.style.height = '0px';
             setTimeout(function () {
                 element.style.height = height;
@@ -124,17 +123,20 @@ export default class IndividualCapsule extends React.Component {
         return (
             <article>
                 <div className='capsule'>
-                <div className='textcontainer'>
-                    <button disabled={this.state.disabled} onClick={e => this.handleOpen(this.props.id)} className='opencapsule' id={this.props.title + '_button'}>{this.state.clock}
-                    </button>
-                    <p className='opentext'>{this.state.status}</p>
-                    </div>
+
                     <div className='textcontainer'>
                         <div className='insidecontainer'>
                             <h3>{this.props.title}</h3>
-                            <p>Buried on {this.props.datecreated}</p><p>Don't open until {this.props.datexpireshuman}</p>
+                            <p className='burieddata'>Buried on {this.props.datecreated}</p><p className='burieddata'>Don't open until {this.props.datexpireshuman}</p>
                         </div>
                     </div>
+
+                    <div className='textcontainer'>
+                    <button disabled={this.state.disabled} onClick={e => this.handleOpen(this.props.id)} className='opencapsule' id={this.props.title + '_button'}>{this.state.clock}
+                    </button>
+                    <p className='opentext '>{this.state.status}</p>
+                    </div>
+                    
                 </div>
                 <div id={this.props.title} className='capsule-contents'>
                     <div className='contents-container'>

@@ -20,7 +20,7 @@ export default class CapsulesPage extends React.Component {
                         handleDelete={this.props.handleDelete}
                     />
                 )}
-                <div class='addnewcontainer'>
+                <div className='addnewcontainer'>
                     <Link to='/addcapsule'>
                         <button id='addnew'>Add new capsule</button>
                     </Link>
