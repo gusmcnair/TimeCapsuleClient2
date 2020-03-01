@@ -8,6 +8,11 @@ export default class CapsulesPage extends React.Component {
     render() {
         return (
             <section className='animated fadeIn'>
+                <div className='addnewcontainer'>
+                    <Link to='/addcapsule'>
+                        <button id='addnew'>Add new capsule</button>
+                    </Link>
+                </div>
                 {this.props.capsules.map((capsule) =>
                     <IndividualCapsule
                         key={capsule.id}
@@ -20,11 +25,6 @@ export default class CapsulesPage extends React.Component {
                         handleDelete={this.props.handleDelete}
                     />
                 )}
-                <div className='addnewcontainer'>
-                    <Link to='/addcapsule'>
-                        <button id='addnew'>Add new capsule</button>
-                    </Link>
-                </div>
             </section>
         )
     }
