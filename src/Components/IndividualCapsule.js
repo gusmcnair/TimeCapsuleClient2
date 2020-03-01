@@ -63,6 +63,10 @@ export default class IndividualCapsule extends React.Component {
     }
 
     handleOpen = (id) => {
+        if (document.getElementById(`${this.props.title}_contents`).innerHTML === '') {
+            this.setState({
+                status: 'LOADING...'
+            })
         fetch(`${apiCall}/${id}?auth=${AUTH_TOKEN}`)
             .then(capsule => {
                 if (capsule.ok) {
@@ -71,7 +75,8 @@ export default class IndividualCapsule extends React.Component {
             })
             .then(capsule => this.handleNewCapsule(capsule))
             .catch(err => console.log(err))
-    }
+    } else {this.handleAppearance()}
+}
 
     handleNewCapsule = (newCapsule) => {
         document.getElementById(this.props.title + '_button').classList.remove('makered')
@@ -80,14 +85,12 @@ export default class IndividualCapsule extends React.Component {
             image.src = newCapsule.imageurl
             image.alt = this.props.title
         }
-        if (document.getElementById(`${this.props.title}_contents`).innerHTML === '') {
             document.getElementById(this.props.title + '_button').classList.add('makeblue')
             if (image.src) {
                 document.getElementById(`${this.props.title}_image`).classList.add('imagecontainer')
                 document.getElementById(`${this.props.title}_image`).append(image)
             }
             document.getElementById(`${this.props.title}_contents`).append(newCapsule.contents)
-        }
         this.handleAppearance()
     }
 
