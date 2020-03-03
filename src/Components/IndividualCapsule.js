@@ -126,10 +126,9 @@ export default class IndividualCapsule extends React.Component {
     }
 
     render() {
-        console.log(this.props, this.state)
 
-        let dateCreated = moment.utc(this.props.datecreated).add(1, 'minute').local().format('LLL').toString()
-        let dateExpires = moment.utc(this.props.datexpireshuman).add(1, 'minute').local().format('LLL').toString()
+        let dateCreated = `${moment.utc(this.props.datecreated).add(1, 'minute').utcOffset(-360).format('MMMM D, YYYY, h:mm a').toString()} CDT`
+        let dateExpires = `${moment.utc(this.props.datexpireshuman).add(1, 'minute').utcOffset(-360).format('MMMM D, YYYY, h:mm a').toString()} CDT`
 
         return (
             <article>
