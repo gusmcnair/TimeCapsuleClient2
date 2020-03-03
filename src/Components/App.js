@@ -8,9 +8,11 @@ import AddCapsulePage from './add-capsule.js'
 import moment from 'moment'
 
 let apiCall = 'https://timecapsule0220.herokuapp.com/api/capsules'
-let AUTH_TOKEN ='bd990ba4-228b-11ea-978f-2e728ce88125'
+let AUTH_TOKEN = 'bd990ba4-228b-11ea-978f-2e728ce88125'
+
 
 class App extends React.Component {
+  
 
   constructor(){
     super()
@@ -24,17 +26,7 @@ class App extends React.Component {
   handleNewData = (event, data) => {
     event.preventDefault()
     let currDate = (moment())
-    let unlockDate = (moment())
-    if(data.time === 'oneminute'){unlockDate.add(1, 'minute')}
-    else if(data.time === 'onehour'){unlockDate.add(1, 'hour')}
-    else if(data.time === 'oneday'){unlockDate.add(1, 'day')}
-    else if(data.time === 'threedays'){unlockDate.add(3, 'days')}
-    else if(data.time === 'oneweek'){unlockDate.add(1, 'week')}
-    else if(data.time === 'fourweeks'){unlockDate.add(4, 'weeks')}
-    else if(data.time === 'halfayear'){unlockDate.add(6, 'months')}
-    else if(data.time === 'oneyear'){unlockDate.add(1, 'years')}
-    else if(data.time === 'twoyears'){unlockDate.add(2, 'years')}
-    else if(data.time === 'fiveyears'){unlockDate.add(5, 'years')}
+    let unlockDate = this.getTime(data.time)
     let imageLink = !data.imagelink ? '' : data.imagelink
     let newCapsule = {
       title: data.title,
@@ -57,18 +49,44 @@ class App extends React.Component {
       .catch(err => console.log(err))
     }
 
+    getTime = (time) => {
 
+      let unlock
+
+      switch(time){
+        case 'oneminute': unlock = moment().add(1, 'minute');
+        break;
+        case 'onehour': unlock = moment().add(1, 'hour');
+        break;
+        case 'oneday': unlock = moment().add(1, 'day');
+        break;
+        case 'threedays': unlock = moment().add(3, 'days');
+        break;
+        case 'oneweek': unlock = moment().add(1, 'week');
+        break;
+        case 'fourweeks': unlock = moment().add(4, 'weeks');
+        break;
+        case 'halfayear': unlock = moment().add(6, 'months');
+        break;
+        case 'oneyear': unlock = moment().add(1, 'year');
+        break;
+        case 'twoyears': unlock = moment().add(2, 'years');
+        break;
+        case 'fiveyears': unlock = moment().add(5, 'years');
+        break;
+        default: unlock = moment().add(1, 'minute')
+      }
+      return unlock
+    }
 
     handleResponse = (response) => {
       let updatedCapsules = this.state.capsules.concat(response)
-      console.log(updatedCapsules)
       this.setState({
         capsules: updatedCapsules
       })
     }
 
   handleCapsules = (newCapsules) => {
-    console.log(newCapsules)
     this.setState({
       capsules: newCapsules
     })

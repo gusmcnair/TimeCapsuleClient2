@@ -22,12 +22,8 @@ export default class IndividualCapsule extends React.Component {
     }
 
     componentDidMount() {
-        let currDate = moment.utc().format('LLL')
-        let thisDate = moment.utc(this.props.datexpireshuman).format('LLL')
-        this.setState({
-            dateexpires: moment(this.props.datexpireshuman).format('LLL')
-        })
-        console.log(currDate, thisDate)
+        let currDate = moment.utc().subtract(1, 'minute').format()
+        let thisDate = moment.utc(this.props.dateExpires).format()
         if (currDate > thisDate) {
             this.setState({
                 disabled: false,
@@ -50,8 +46,8 @@ export default class IndividualCapsule extends React.Component {
     }
 
     checkDate() {
-        let currDate = moment.utc().format('LLL')
-        let thisDate = moment.utc(this.props.datexpireshuman).format('LLL')
+        let currDate = moment.utc().subtract(1, 'minute').format()
+        let thisDate = moment.utc(this.props.dateExpires).format()
         if (currDate > thisDate) {
             this.setState({
                 disabled: false,
@@ -126,11 +122,11 @@ export default class IndividualCapsule extends React.Component {
     render() {
 
 
-        let dateCreated = `${moment.utc(this.props.datecreated).add(1, 'minute').local().format('MMMM D, YYYY, h:mm a').toString()} CDT`
-        let dateExpires = `${moment.utc(this.props.datexpireshuman).add(1, 'minute').local().format('MMMM D, YYYY, h:mm a').toString()} CDT`
+        let dateCreated = `${moment.utc(this.props.dateCreated).add(1, 'minute').local().format('MMMM D, YYYY, h:mm a').toString()}`
+        let dateExpires = `${moment.utc(this.props.dateExpires).add(1, 'minute').local().format('MMMM D, YYYY, h:mm a').toString()}`
 
-        //let dateCreated = `${moment.utc(this.props.datecreated).add(1, 'minute').utcOffset(-360).format('MMMM D, YYYY, h:mm a').toString()} CDT`
-        //let dateExpires = `${moment.utc(this.props.datexpireshuman).add(1, 'minute').utcOffset(-360).format('MMMM D, YYYY, h:mm a').toString()} CDT`
+        //let dateCreated = `${moment.utc(this.props.dateCreated).add(1, 'minute').utcOffset(-360).format('MMMM D, YYYY, h:mm a').toString()} CDT`
+        //let dateExpires = `${moment.utc(this.props.dateExpires).add(1, 'minute').utcOffset(-360).format('MMMM D, YYYY, h:mm a').toString()} CDT`
 
         return (
             <article>
