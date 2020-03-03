@@ -19,8 +19,7 @@ export default class CapsulesPage extends React.Component {
                         id={capsule.id}
                         title={capsule.title}
                         datecreated={capsule.burydate}
-                        dateexpires={capsule.opennumber}
-                        datexpireshuman={capsule.opendate}
+                        datexpireshuman={capsule.opendates}
                         contents={this.props.contents}
                         handleDelete={this.props.handleDelete}
                     />

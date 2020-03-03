@@ -91,7 +91,7 @@ main {
     margin-left: 20px;
     margin-right: 20px;
     border: 2px solid tomato;
-    background: rgb(230, 230, 230);
+    background: white;
     position: relative;
     z-index: 10;
     -webkit-transition: height .5s ease;
@@ -317,6 +317,10 @@ img {
 #addnew {
     background: navy;
     border: 2px solid tomato;
+}
+
+#discard {
+    background: navy;
 }
 
 

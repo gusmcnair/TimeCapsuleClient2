@@ -3,6 +3,7 @@ import '../Utilities/style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons'
+import moment from 'moment'
 
 let clockFirst = <FontAwesomeIcon icon={faClock} />
 let envelopeSecond = <FontAwesomeIcon icon={faEnvelopeOpenText} />
@@ -15,19 +16,21 @@ export default class IndividualCapsule extends React.Component {
         super()
         this.state = {
             disabled: true,
-            dateexpires: 0,
-            currentdate: 0,
+            dateexpires: '',
+            currentdate: '',
             clock: clockFirst,
             status: ''
         }
     }
 
     componentDidMount() {
-        let currDate = Date.now()
+        let currDate = moment.utc().format('LLL')
+        let thisDate = moment.utc(this.props.datexpireshuman).format('LLL')
         this.setState({
-            dateexpires: this.props.dateexpires
+            dateexpires: moment(this.props.datexpireshuman).format('LLL')
         })
-        if (currDate > this.props.dateexpires) {
+        console.log(currDate, thisDate)
+        if (currDate > thisDate) {
             this.setState({
                 disabled: false,
                 clock: envelopeSecond,
@@ -49,17 +52,18 @@ export default class IndividualCapsule extends React.Component {
     }
 
     checkDate() {
-        let currDate = Date.now()
-        if (currDate > this.props.dateexpires) {
+        let currDate = moment.utc().format('LLL')
+        let thisDate = moment.utc(this.props.datexpireshuman).format('LLL')
+        if (currDate > thisDate) {
             this.setState({
                 disabled: false,
                 clock: envelopeSecond
             })
-            document.getElementById(this.props.title + '_button').classList.add('makered')
+            document.getElementById(this.props.title + '_button').classList.add('makeblue')
             alert(`Your time capsule '${this.props.title}' just unlocked!`)
             this.setState({status: 'OPEN'})
             clearInterval(this.interval)
-        }
+        } 
     }
 
     handleOpen = (id) => {
@@ -122,6 +126,10 @@ export default class IndividualCapsule extends React.Component {
     }
 
     render() {
+        console.log(this.props, this.state)
+
+        let dateCreated = moment.utc(this.props.datecreated).add(1, 'minute').local().format('LLL').toString()
+        let dateExpires = moment.utc(this.props.datexpireshuman).add(1, 'minute').local().format('LLL').toString()
 
         return (
             <article>
@@ -130,7 +138,7 @@ export default class IndividualCapsule extends React.Component {
                     <div className='textcontainer'>
                         <div className='insidecontainer'>
                             <h3>{this.props.title}</h3>
-                            <p className='burieddata'>Buried on {this.props.datecreated}</p><p className='burieddata'>Don't open until {this.props.datexpireshuman}</p>
+                            <p className='burieddata'>Buried on {dateCreated}</p><p className='burieddata'>Don't open until {dateExpires}</p>
                         </div>
                     </div>
 
