@@ -57,6 +57,8 @@ class App extends React.Component {
       .catch(err => console.log(err))
     }
 
+
+
     handleResponse = (response) => {
       let updatedCapsules = this.state.capsules.concat(response)
       console.log(updatedCapsules)
