@@ -1,6 +1,7 @@
 <h1>Time Capsule</h1>
 
-Sick of WebMD telling you you're about to die, when you just have sniffles and a stomachache? Introducing GrampsMD, the folksy, no-frills alternative. Maybe you just need some of great-grandma's spring elixir! Maybe you're just hysterical! Maybe Grandpa doesn't know what you have, but why don't you call him and Grandma more often! Whatever the case may be, Grandpa's advice is sure to beat that of those quack doctors. (Please, please, please do not use GrampsMD for actual medical advice.)
+Time Capsule is an app for sending messages that can be accessed only by your future self, whether tomorrow, a month from now, or in five years. Use it to send reminders, pass encouragement to a future version of you, or just document what your life is like right now.
+ 
 
 [Link to live app](https://timecapsule.now.sh/)
 

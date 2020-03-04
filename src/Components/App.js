@@ -13,16 +13,14 @@ let AUTH_TOKEN = 'bd990ba4-228b-11ea-978f-2e728ce88125'
 
 class App extends React.Component {
   
-
   constructor(){
     super()
     this.state = {
       capsules: [],
+      loaded: false,
       error: false
     }
   }
-
-
 
   handleNewData = (event, data) => {
     event.preventDefault()
@@ -89,6 +87,7 @@ class App extends React.Component {
 
   handleCapsules = (newCapsules) => {
     this.setState({
+      loaded: true,
       capsules: newCapsules
     })
   }
@@ -135,7 +134,7 @@ class App extends React.Component {
         <HeaderComponent/>
         <Switch>
           <Route exact path='/'>
-            <LandingPage capsules={this.state.capsules} error={this.state.error}/>
+            <LandingPage loaded={this.state.loaded} error={this.state.error}/>
           </Route>
           <Route exact path='/capsules'>
             <CapsulesPage capsules={this.state.capsules} handleDelete={this.handleDelete}/>

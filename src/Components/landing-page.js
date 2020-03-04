@@ -7,7 +7,7 @@ export default class LandingPage extends React.Component {
 
     render(){
         const renderLoadingButton = () => {
-            if(this.props.capsules.length !== 0){
+            if(this.props.loaded === true){
                 return(
                     <Link to='/capsules'>
                         <button className='enter-button' >
