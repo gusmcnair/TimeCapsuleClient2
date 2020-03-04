@@ -50,6 +50,15 @@ table {
 	border-spacing: 0;
 }
 
+.errordiv {
+    font-size: 1.1rem;
+    color: tomato;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    padding: 20px;
+    text-align: center;
+}
+
 
 * {
     font-family: 'Source Sans Pro', sans-serif;
@@ -274,11 +283,11 @@ img {
     padding-right: 15px;
 }
 
-.makered {
+.makenavy {
     background-color: navy;
     color: tomato;}
 
-.makeblue {
+.makeorange {
     color: navy;
     background-color: tomato;
 }

@@ -22,7 +22,7 @@ export default class IndividualCapsule extends React.Component {
     }
 
     componentDidMount() {
-        let currDate = moment.utc().subtract(1, 'minute').format()
+        let currDate = moment.utc().format()
         let thisDate = moment.utc(this.props.dateExpires).format()
         if (currDate > thisDate) {
             this.setState({
@@ -30,7 +30,7 @@ export default class IndividualCapsule extends React.Component {
                 clock: envelopeSecond,
                 status: 'OPEN'
             })
-            document.getElementById(this.props.title + '_button').classList.add('makeblue')
+            document.getElementById(this.props.title + '_button').classList.add('makeorange')
 
             clearInterval(this.interval)
         } else {
@@ -46,14 +46,14 @@ export default class IndividualCapsule extends React.Component {
     }
 
     checkDate() {
-        let currDate = moment.utc().subtract(1, 'minute').format()
+        let currDate = moment.utc().format()
         let thisDate = moment.utc(this.props.dateExpires).format()
         if (currDate > thisDate) {
             this.setState({
                 disabled: false,
                 clock: envelopeSecond
             })
-            document.getElementById(this.props.title + '_button').classList.add('makeblue')
+            document.getElementById(this.props.title + '_button').classList.add('makeorange')
             alert(`Your time capsule '${this.props.title}' just unlocked!`)
             this.setState({status: 'OPEN'})
             clearInterval(this.interval)
@@ -72,18 +72,24 @@ export default class IndividualCapsule extends React.Component {
                 }
             })
             .then(capsule => this.handleNewCapsule(capsule))
-            .catch(err => console.log(err))
+            .catch(err => this.handleCapsuleError())
     } else {this.handleAppearance()}
 }
 
+handleCapsuleError = () => {
+    alert('There was an error with your request. Please check your internet connection and try again.')
+    this.setState({status: 'OPEN'})
+    document.getElementById(this.props.title + '_button').classList.remove('makenavy')
+  }
+
     handleNewCapsule = (newCapsule) => {
-        document.getElementById(this.props.title + '_button').classList.remove('makered')
+        document.getElementById(this.props.title + '_button').classList.remove('makenavy')
         let image = document.createElement('img')
         if (newCapsule.imageurl !== '') {
             image.src = newCapsule.imageurl
             image.alt = this.props.title
         }
-            document.getElementById(this.props.title + '_button').classList.add('makeblue')
+            document.getElementById(this.props.title + '_button').classList.add('makeorange')
             if (image.src) {
                 document.getElementById(`${this.props.title}_image`).classList.add('imagecontainer')
                 document.getElementById(`${this.props.title}_image`).append(image)
@@ -97,8 +103,8 @@ export default class IndividualCapsule extends React.Component {
         let thisButton = document.getElementById(this.props.title + '_button')
         if (!element.classList.contains('show')) {
             this.setState({status: 'CLOSE'})
-            thisButton.classList.add('makered')
-            thisButton.classList.remove('makeblue')
+            thisButton.classList.add('makenavy')
+            thisButton.classList.remove('makeorange')
             element.classList.add('show')
             element.style.height = 'auto';
             let height = element.clientHeight + 'px';
@@ -108,8 +114,8 @@ export default class IndividualCapsule extends React.Component {
             }, 0)
         } else {
             this.setState({status: 'OPEN'})
-            thisButton.classList.add('makeblue')
-            thisButton.classList.remove('makered')
+            thisButton.classList.add('makeorange')
+            thisButton.classList.remove('makenavy')
             element.style.height = '0px';
             element.addEventListener('transitionend', function () {
                 element.classList.remove('show')
@@ -121,9 +127,8 @@ export default class IndividualCapsule extends React.Component {
 
     render() {
 
-
-        let dateCreated = `${moment.utc(this.props.dateCreated).add(1, 'minute').local().format('MMMM D, YYYY, h:mm a').toString()}`
-        let dateExpires = `${moment.utc(this.props.dateExpires).add(1, 'minute').local().format('MMMM D, YYYY, h:mm a').toString()}`
+        let dateCreated = `${moment.utc(this.props.dateCreated).local().format('MMMM D, YYYY, h:mm a').toString()}`
+        let dateExpires = `${moment.utc(this.props.dateExpires).local().format('MMMM D, YYYY, h:mm a').toString()}`
 
         //let dateCreated = `${moment.utc(this.props.dateCreated).add(1, 'minute').utcOffset(-360).format('MMMM D, YYYY, h:mm a').toString()} CDT`
         //let dateExpires = `${moment.utc(this.props.dateExpires).add(1, 'minute').utcOffset(-360).format('MMMM D, YYYY, h:mm a').toString()} CDT`

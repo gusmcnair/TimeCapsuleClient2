@@ -18,6 +18,7 @@ class App extends React.Component {
     super()
     this.state = {
       capsules: [],
+      error: false
     }
   }
 
@@ -46,7 +47,7 @@ class App extends React.Component {
         }
       })
       .then(response => this.handleResponse(response))
-      .catch(err => console.log(err))
+      .catch(err => this.handleError())
     }
 
     getTime = (time) => {
@@ -92,6 +93,10 @@ class App extends React.Component {
     })
   }
 
+  handleError = () => {
+    alert('There was an error with your request. Please check your internet connection and try again.')
+  }
+
   handleDelete = (id) => {
     let newCapsules = this.state.capsules.filter(capsule => capsule.id !== id)
     this.setState({
@@ -104,7 +109,7 @@ class App extends React.Component {
                 return res
             }
         })
-        .catch(err => console.log(err))
+        .catch(err => this.handleError())
       }
 
   getCapsules(){
@@ -115,7 +120,9 @@ class App extends React.Component {
       }
     })
     .then(capsules => this.handleCapsules(capsules))
-    .catch(err => (console.log(err)))
+    .catch(err => (this.setState({
+      error: true
+    })))
   }
 
   componentDidMount(){
@@ -128,7 +135,7 @@ class App extends React.Component {
         <HeaderComponent/>
         <Switch>
           <Route exact path='/'>
-            <LandingPage capsules={this.state.capsules}/>
+            <LandingPage capsules={this.state.capsules} error={this.state.error}/>
           </Route>
           <Route exact path='/capsules'>
             <CapsulesPage capsules={this.state.capsules} handleDelete={this.handleDelete}/>

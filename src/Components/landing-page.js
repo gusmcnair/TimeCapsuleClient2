@@ -15,6 +15,12 @@ export default class LandingPage extends React.Component {
                         </button>
                     </Link>
                 )
+            } else if(this.props.error === true){
+                return(
+                    <div className='errordiv'>
+                        Unfortunately, there was an error loading your capsules. Please check your internet connection and try refreshing the page.
+                    </div>
+                )
             } else {
                 return(<div className='loader'></div>)
             }
