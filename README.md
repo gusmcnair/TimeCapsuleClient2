@@ -15,9 +15,9 @@ Time Capsule starts on a landing page, which displays an 'enter' button when API
 
 ![Landing page](https://github.com/gusmcnair/TimeCapsuleClient2/blob/master/src/graphics/openpage.png?raw=true)
 
-![Main view](https://github.com/gusmcnair/GrampsMDClient/blob/master/src/graphics/capsulespage.png?raw=true)
+![Main view](https://github.com/gusmcnair/TimeCapsuleClient2/blob/master/src/graphics/capsulespage.png?raw=true)
 
-![Add capsule view](https://github.com/gusmcnair/GrampsMDClient/blob/master/src/graphics/newcapsulepage.png?raw=true)
+![Add capsule view](https://github.com/gusmcnair/TimeCapsuleClient2/blob/master/src/graphics/newcapsulepage.png?raw=true)
 
 <h2>Technologies used</h2>
 <ul>
