@@ -48,6 +48,7 @@ export default class IndividualCapsule extends React.Component {
     checkDate() {
         let currDate = moment.utc().format()
         let thisDate = moment.utc(this.props.dateExpires).format()
+        console.log(currDate, thisDate)
         if (currDate > thisDate) {
             this.setState({
                 disabled: false,
