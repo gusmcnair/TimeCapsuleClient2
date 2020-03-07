@@ -105,11 +105,6 @@ class App extends React.Component {
   //Call getcapsules function on component mount to get capsules.
   componentDidMount() {
     ApiService.getCapsules()
-    .then(capsules => {
-      (!capsules.ok)
-          ? capsules.json().then(e => Promise.reject(e))
-          : capsules.json()
-  })
       .then(capsules => this.handleCapsules(capsules))
       .catch(err => (this.setState({
         error: true
