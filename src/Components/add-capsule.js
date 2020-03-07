@@ -1,9 +1,9 @@
 import React from 'react'
 import '../Utilities/style.css'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
-class AddCapsulePage extends React.Component{
-    constructor(){
+class AddCapsulePage extends React.Component {
+    constructor() {
         super()
         this.state = {
             title: '',
@@ -13,54 +13,58 @@ class AddCapsulePage extends React.Component{
         }
     }
 
+    //Every time user changes the form input, update the state.
     updateState = (category, value) => {
         this.setState({
             [category]: value
         })
     }
 
+    //Disable button if input requirements are not met.
     handleDisabled = () => {
-        if(this.state.title.length >= 8 && this.state.content.length >= 20){return false}
-        else{return true}
+        if (this.state.title.length >= 8 && this.state.content.length >= 20) { return false }
+        else { return true }
     }
 
+    //Return to main page, automatically removing incomplete info from form.
     handleDiscard = () => {
         this.props.history.push('/capsules')
     }
 
+    //On press of submit, collect the info and send to API; also return to main capsules page.
     handleSubmit = (event, data) => {
         event.preventDefault()
         this.props.handleNewData(event, data)
-        this.props.history.push('/capsules')  
+        this.props.history.push('/capsules')
     }
 
-    render(){
+    render() {
         const isDisabled = this.handleDisabled()
-        return(
+        return (
             <section className='addcapsules animated fadeIn'>
-               <form onSubmit={e => this.handleSubmit(e, this.state)}>
-                <label htmlFor='title'>Title</label>
-                <input name='title' id='title' type='text' placeholder='All my secrets' onChange={e => this.updateState(e.target.id, e.target.value)}/>
-                <label htmlFor='content'>Content</label>
-                <textarea name='content' id='content' type='text' placeholder='I am afraid of houseplants' rows='5' onChange={e => this.updateState(e.target.id, e.target.value)}/>
-                <label htmlFor='imagelink'>Link To Image (not required)</label>
-                <input name='imagelink' id='imagelink' type='url' onChange={e => this.updateState(e.target.id, e.target.value)}/>
-                <label htmlFor='time'>Amount of Time</label>
-                <select id='time' onChange={e => this.updateState(e.target.id, e.target.value)}>
-                    <option value='oneminute'>One minute (test)</option>
-                    <option value='oneday'>One day</option>
-                    <option value='threedays'>Three days</option>
-                    <option value='oneweek'>One week</option>
-                    <option value='fourweeks'>Four weeks</option>
-                    <option value='halfayear'>Half a year</option>
-                    <option value='oneyear'>One year</option>
-                    <option value='twoyears'>Two years</option>
-                    <option value='fiveyears'>Five years</option>
-                </select>
+                <form onSubmit={e => this.handleSubmit(e, this.state)}>
+                    <label htmlFor='title'>Title</label>
+                    <input name='title' id='title' type='text' placeholder='All my secrets' onChange={e => this.updateState(e.target.id, e.target.value)} />
+                    <label htmlFor='content'>Content</label>
+                    <textarea name='content' id='content' type='text' placeholder='I am afraid of houseplants' rows='5' onChange={e => this.updateState(e.target.id, e.target.value)} />
+                    <label htmlFor='imagelink'>Link To Image (not required)</label>
+                    <input name='imagelink' id='imagelink' type='url' onChange={e => this.updateState(e.target.id, e.target.value)} />
+                    <label htmlFor='time'>Amount of Time</label>
+                    <select id='time' onChange={e => this.updateState(e.target.id, e.target.value)}>
+                        <option value='oneminute'>One minute (test)</option>
+                        <option value='oneday'>One day</option>
+                        <option value='threedays'>Three days</option>
+                        <option value='oneweek'>One week</option>
+                        <option value='fourweeks'>Four weeks</option>
+                        <option value='halfayear'>Half a year</option>
+                        <option value='oneyear'>One year</option>
+                        <option value='twoyears'>Two years</option>
+                        <option value='fiveyears'>Five years</option>
+                    </select>
                     <p className='warning' hidden={!isDisabled}>Title must be at least eight characters long. Body must be at least twenty characters long.</p>
                     <button id='submit' disabled={isDisabled}>Submit</button>
                     <button id='discard' onClick={this.handleDiscard}>Discard and Return</button>
-            </form>
+                </form>
             </section>
         )
     }
