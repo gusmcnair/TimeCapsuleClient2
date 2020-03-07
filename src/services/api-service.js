@@ -6,7 +6,7 @@ const ApiService = {
     getCapsules() {
         return fetch(`${apiCall}?auth=${AUTH_TOKEN}`)
         .then(capsules => {
-            (!capsules.ok)
+            return (!capsules.ok)
                 ? capsules.json().then(e => Promise.reject(e))
                 : capsules.json()
         })
@@ -15,7 +15,7 @@ const ApiService = {
     getCapsulesById(id) {
         return fetch(`${apiCall}/${id}?auth=${AUTH_TOKEN}`)
             .then(capsule => {
-                (!capsule.ok)
+                return (!capsule.ok)
                     ? capsule.json().then(e => Promise.reject(e))
                     : capsule.json()
             })
@@ -26,9 +26,9 @@ const ApiService = {
             method: 'DELETE'
         })
             .then(res => {
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
+                return (!res.ok)
+                    ? res.then(e => Promise.reject(e))
+                    : res
             })
     },
 
@@ -41,7 +41,7 @@ const ApiService = {
             body: JSON.stringify(newCapsule)
         })
             .then(capsule => {
-                (!capsule.ok)
+                return (!capsule.ok)
                     ? capsule.json().then(e => Promise.reject(e))
                     : capsule.json()
             })

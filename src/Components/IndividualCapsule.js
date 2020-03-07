@@ -70,11 +70,6 @@ export default class IndividualCapsule extends React.Component {
                 status: 'LOADING...'
             })
             ApiService.getCapsulesById(id)
-                .then(res => {
-                    if (res.ok) {
-                        return res
-                    }
-                })
                 .then(capsule => this.handleNewCapsule(capsule))
                 .catch(err => this.handleCapsuleError())
         } else { this.handleAppearance() }
